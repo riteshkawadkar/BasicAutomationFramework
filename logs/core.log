@@ -1,0 +1,31 @@
+2022-09-04 22:00:51,536  INFO [main] ApplicationLogManager:11 - Setup Operation completed
+2022-09-04 22:00:51,568  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: username
+2022-09-04 22:00:51,569  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: username
+2022-09-04 22:00:51,714  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: password
+2022-09-04 22:00:51,715  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: password
+2022-09-04 22:00:51,844  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: Inpatient Ward
+2022-09-04 22:00:51,844  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: Inpatient Ward
+2022-09-04 22:00:51,966  INFO [main] ApplicationLogManager:11 - Trying to click on web element using identifier - By.id: loginButton
+2022-09-04 22:00:51,966  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: loginButton
+2022-09-04 22:00:54,585  INFO [main] ApplicationLogManager:11 - Trying to click on web element using identifier - By.xpath: //div[@id='content']/*[@class='row'][3]//a[3]
+2022-09-04 22:00:54,588  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.xpath: //div[@id='content']/*[@class='row'][3]//a[3]
+2022-09-04 22:01:00,509  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.name: givenName
+2022-09-04 22:01:00,512  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.name: givenName
+2022-09-04 22:01:00,702  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.name: familyName
+2022-09-04 22:01:00,702  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.name: familyName
+2022-09-04 22:01:00,927  INFO [main] ApplicationLogManager:11 - Trying to click on web element using identifier - By.id: next-button
+2022-09-04 22:01:00,927  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: next-button
+2022-09-04 22:01:01,025  INFO [main] ApplicationLogManager:11 - Trying to select web element using identifier - By.id: gender-field
+2022-09-04 22:01:01,028  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: gender-field
+2022-09-04 22:01:01,167  INFO [main] ApplicationLogManager:11 - Trying to click on web element using identifier - By.id: next-button
+2022-09-04 22:01:01,168  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: next-button
+2022-09-04 22:01:01,254  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: birthdateDay-field
+2022-09-04 22:01:01,255  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: birthdateDay-field
+2022-09-04 22:01:01,374  INFO [main] ApplicationLogManager:11 - Trying to select web element using identifier - By.id: birthdateMonth-field
+2022-09-04 22:01:01,375  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: birthdateMonth-field
+2022-09-04 22:01:01,484  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: birthdateYear-field
+2022-09-04 22:01:01,485  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: birthdateYear-field
+2022-09-04 22:01:01,613  INFO [main] ApplicationLogManager:11 - Trying to click on web element using identifier - By.id: next-button
+2022-09-04 22:01:01,613  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: next-button
+2022-09-04 22:01:01,703  INFO [main] ApplicationLogManager:11 - Trying to send text to web element using identifier - By.id: address1
+2022-09-04 22:01:01,704  INFO [main] ApplicationLogManager:11 - Trying to find element using identifier - By.id: address1
