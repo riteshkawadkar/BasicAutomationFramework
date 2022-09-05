@@ -2,10 +2,11 @@ package data;
 
 import com.github.javafaker.Faker;
 
+import java.nio.file.Paths;
+
 public class Constants {
 
-    Faker faker = new Faker();
-    public static final String APPLICATION_URL = "https://demo.openmrs.org/openmrs/";
+    static Faker faker = new Faker();
 
     //LoginPage
     public static final String LOGINPAGE_URL = "https://demo.openmrs.org/openmrs/referenceapplication/login.page";
@@ -14,34 +15,47 @@ public class Constants {
     public static final String USERNAME_INVALID = "admin";
     public static final String PASSWORD = "Admin123";
     public static final String PASSWORD_INVALID = "Ad123";
-    public static final String LOCATION = "Inpatient ward";
+
 
     //HomePage
     public static final String HOMEPAGE_URL = "https://demo.openmrs.org/openmrs/referenceapplication/home.page";
     public static final String VALIDATION_MESSAGE = "Logged in as Super User (admin) at Inpatient Ward.";
 
+
     //RegisterPatient
-    public static final String REGISTERPAGE_URL = "https://demo.openmrs.org/openmrs/registrationapp/registerPatient.page?appId=referenceapplication.registrationapp.registerPatient";
-    public static final String GIVEN = "TestName";
-    public static final String FAMILYNAME = "TestFamily";
+    public static final String GIVEN = faker.name().firstName();
+    public static final String FAMILYNAME = faker.name().lastName();
     public static final String GENDER = "Male";
-    public static final String BIRTHDATE = "11";
-    public static final String BIRTHMONTH = "October";
-    public static final String BIRTHYEAR = "1988";
-    public static final String ADDRESS1 = "Flat - 111";
-    public static final String ADDRESS2 = "Test Steet";
-    public static final String CITY = "City";
-    public static final String STATE = "State";
-    public static final String COUNTRY = "Country";
-    public static final String POSTALCODE = "411057";
-    public static final String PHONE = "1234567890";
+    public static final String BIRTHDATE = String.valueOf(faker.number().numberBetween(1,28));
+    public static final String BIRTHMONTH = String.valueOf(faker.number().numberBetween(1,12));
+    public static final String BIRTHYEAR = String.valueOf(faker.number().numberBetween(1900,2022));
+    public static final String ADDRESS1 = faker.address().buildingNumber();
+    public static final String ADDRESS2 = faker.address().streetAddress();
+    public static final String CITY = faker.address().city();
+    public static final String STATE = faker.address().state();
+    public static final String COUNTRY = faker.address().country();
+    public static final String POSTALCODE = faker.address().zipCode();
+    public static final String PHONE = faker.phoneNumber().subscriberNumber(10);
     public static final String RELATIONSHIPTYPE = "Parent";
-    public static final String RELATIONSHIPPerson= "Parent name";
+    public static final String RELATIONSHIPPERSON = faker.name().fullName();
+
 
 
 
     //PatientPage
-    public static final String PATIENTPAGE_URL = "https://demo.openmrs.org/openmrs/coreapps/clinicianfacing/patient.page?patientId=";
+    public static String PatientIdentifier = "1000MJ";
+    public static String InCorrectPatientIdentifier = "ZZZZZZ";
+
+
+    //Appointment Page
+    public static final String APPOINTMENT_TYPE = "General Medicine";
+    public static final String NOTES = "General Notes";
+    public static final String ATTACHMENT_PATH = Paths.get(".").normalize().toAbsolutePath() + "\\src\\test\\resources\\attachment.txt";
+
+
+    //Delete
+    public static final String DELETE_REASON = "Testing Purpose";
+    
 
 
 }

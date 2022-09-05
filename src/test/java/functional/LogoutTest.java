@@ -24,8 +24,8 @@ public class LogoutTest  extends BaseTest {
     public void validate_logout(){
         //act
         String url = loginPage
-                .login(Constants.USERNAME, Constants.PASSWORD, Constants.LOCATION)
-                .getheader()
+                .login(Constants.USERNAME, Constants.PASSWORD)
+                .getHeader()
                 .logout()
                 .getCurrentPageURL();
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Parallel Suite" parallel="classes" thread-count="4" >
+    <listeners>
+        <listener class-name="listeners.TestNGListeners"></listener>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+
+    <test verbose="2" name="Sanity Test">
+        <classes>
+            <class name="functional.LogoutTest"/>
+
+            <class name="functional.LoginTest"/>
+
+            <class name="functional.AddAttachmentTest"/>
+
+            <class name="functional.BookAppointmentTest"/>
+
+            <class name="functional.DeletePatientTest"/>
+
+            <class name="functional.FindPatientTest"/>
+
+            <class name="functional.RegisterTest"/>
+
+            <class name="functional.ViewPatientTest"/>
+        </classes>
+    </test>
+
+
+</suite>

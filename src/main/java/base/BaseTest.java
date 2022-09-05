@@ -1,21 +1,25 @@
 package base;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import factories.DriverFactory;
+import freemarker.template.utility.Constants;
 import managers.ApplicationLogManager;
+import factories.BrowserFactory;
+import org.openqa.selenium.support.events.EventFiringDecorator;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class BaseTest {
 
     protected static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-    Properties props = new Properties();
+    protected Properties props = new Properties();
+
 
     @BeforeMethod(alwaysRun = true)
     @Parameters(value={"browser"})
@@ -27,20 +31,21 @@ public class BaseTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        DriverFactory.getInstance().setDriver(BrowserFactory.getBrowser(browser));
 
-        DriverFactory.setTlDriver(browser);
-
-        DriverFactory.getTlDriver().get(props.getProperty("APPLICATION_URL"));
-        DriverFactory.getTlDriver().manage().window().maximize();
-
-
+        DriverFactory.getDriver().get(props.getProperty("APPLICATION_URL"));
+        DriverFactory.getInstance().getDriver().manage().window().maximize();
 
         ApplicationLogManager.info("Setup Operation completed");
+
+
     }
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) throws IOException {
         DriverFactory.disposeDriver();
     }
+
+
 
 }

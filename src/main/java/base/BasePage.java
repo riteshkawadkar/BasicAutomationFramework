@@ -14,57 +14,67 @@ import java.time.Duration;
 
 public class BasePage {
 
-    protected WebDriver driver = DriverFactory.getTlDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    protected WebDriver driver = DriverFactory.getDriver();
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
     public String getCurrentPageURL()
     {
         return driver.getCurrentUrl();
     }
 
-    public Header getheader(){
+    public Header getHeader(){
         ApplicationLogManager.info("Accessing Header");
         return new Header();
     }
 
-    protected WebElement get_webelement(By identifier){
+    protected WebElement getWebElement(By identifier){
         ApplicationLogManager.info("Trying to find element using identifier - " + identifier);
 
         return wait
                 .until(ExpectedConditions.elementToBeClickable(identifier));
     }
 
-    protected boolean exists(By identifier){
-        ApplicationLogManager.info("Trying to check if element exists on page using identifier - " + identifier);
+    protected WebElement waitUntilVisible(By identifier){
 
+        return wait
+                .until(ExpectedConditions.visibilityOfElementLocated(identifier));
+    }
+
+    protected boolean waitForTextChangeProperty(By identifier, String value){
+
+        return wait
+                .until(ExpectedConditions.textToBePresentInElementLocated(identifier, value));
+    }
+
+    protected boolean exists(By identifier){
         return driver.findElements(identifier).size()>0?true:false;
     }
 
-    protected String wait_getText(By identifier){
-        ApplicationLogManager.info("Trying to get text from web element using identifier - " + identifier);
-
-        return get_webelement(identifier)
+    protected String waitGetText(By identifier){
+        return getWebElement(identifier)
                 .getText();
     }
-    protected void wait_sendkeys(By identifier, String value){
-        ApplicationLogManager.info("Trying to send text to web element using identifier - " + identifier);
-
-        get_webelement(identifier)
+    protected void waitSendKeys(By identifier, String value){
+        getWebElement(identifier)
                 .sendKeys(value);
     }
 
-    protected void wait_click(By identifier){
-        ApplicationLogManager.info("Trying to click on web element using identifier - " + identifier);
-
-        get_webelement(identifier)
+    protected void waitClick(By identifier){
+        getWebElement(identifier)
                 .click();
     }
 
     protected void select(By identifier, int index){
+        Select dropdown  = new Select(getWebElement(identifier));
+        dropdown.getOptions().get(index).click();
+
+    }
+
+    protected void select(By identifier, String value){
         ApplicationLogManager.info("Trying to select web element using identifier - " + identifier);
 
-        Select dropdown  = new Select(get_webelement(identifier));
-        dropdown.getOptions().get(index).click();
+        Select dropdown  = new Select(getWebElement(identifier));
+        dropdown.selectByVisibleText(value);
 
     }
 }

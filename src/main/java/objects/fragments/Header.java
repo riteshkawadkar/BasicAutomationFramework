@@ -12,9 +12,9 @@ public class Header extends BasePage {
 
     public LoginPage logout(){
         if(exists(button_toggler))
-            wait_click(button_toggler);
+            waitClick(button_toggler);
 
-        wait_click(button_logout);
+        waitClick(button_logout);
         return new LoginPage();
     }
 }

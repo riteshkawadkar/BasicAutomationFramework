@@ -1,34 +1,38 @@
 package objects.pages;
 
 import base.BasePage;
-import objects.fragments.Header;
 import org.openqa.selenium.By;
 
 public class HomePage extends BasePage {
 
-    private By label_validationMessage = By.xpath("//h4");
+    private final By LABEL_VALIDATION_MESSAGE = By.xpath("//h4");
 
-    private By link_findP = By.xpath("//div[@id='content']/*[@class='row'][3]//a[1]");
-    private By link_registerP = By.xpath("//div[@id='content']/*[@class='row'][3]//a[3]");
-    private By link_appointment = By.xpath("//div[@id='content']/*[@class='row'][3]//a[5]");
+    private final By LINK_FIND_PATIENT = By.xpath("//div[@id='content']/*[@class='row'][3]//a[1]");
+    private final By LINK_REGISTER_PATIENT = By.xpath("//div[@id='content']/*[@class='row'][3]//a[3]");
+    private final By LINK_APPOINTMENT = By.xpath("//div[@id='content']/*[@class='row'][3]//a[5]");
 
     public String getValidationMessage(){
-        return wait_getText(label_validationMessage);
+        return waitGetText(LABEL_VALIDATION_MESSAGE);
     }
 
     public RegisterPatientPage register_patient(){
-        wait_click(link_registerP);
+        waitClick(LINK_REGISTER_PATIENT);
         return new RegisterPatientPage();
     }
 
-    public AppointmentPage book_appointment(){
-        wait_click(link_appointment);
-        return new AppointmentPage();
+    public BookAppointmentPage book_appointment(){
+        waitClick(LINK_APPOINTMENT);
+        return new BookAppointmentPage();
     }
 
-    public FindPatientPage find_patient(){
-        wait_click(link_findP);
+    public FindPatientPage findPatient(){
+        waitClick(LINK_FIND_PATIENT);
         return new FindPatientPage();
+    }
+
+    public HomePage gotToHome(){
+        driver.get("https://demo.openmrs.org/openmrs/index.htm");
+        return this;
     }
 
 }

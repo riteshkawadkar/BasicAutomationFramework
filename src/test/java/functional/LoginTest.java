@@ -5,9 +5,7 @@ import data.Constants;
 import objects.pages.HomePage;
 import objects.pages.LoginPage;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class LoginTest extends BaseTest {
@@ -28,8 +26,8 @@ public class LoginTest extends BaseTest {
 
         //act
         String url = loginPage
-                .login(Constants.USERNAME, Constants.PASSWORD, Constants.LOCATION)
-                        .getCurrentPageURL();
+                .login(Constants.USERNAME, Constants.PASSWORD)
+                .getCurrentPageURL();
 
         //assert
         Assert.assertEquals(url, Constants.HOMEPAGE_URL, "Wrong URL Found");
@@ -40,8 +38,8 @@ public class LoginTest extends BaseTest {
 
         //act
         String validationMessage = loginPage
-                .login(Constants.USERNAME, Constants.PASSWORD, Constants.LOCATION)
-                        .getValidationMessage();
+                .login(Constants.USERNAME, Constants.PASSWORD)
+                .getValidationMessage();
 
 
         //assert
@@ -52,8 +50,8 @@ public class LoginTest extends BaseTest {
     public void test_login_with_invalid_credentials(){
         //act
         String url = loginPage
-                .login(Constants.USERNAME_INVALID, Constants.PASSWORD_INVALID, Constants.LOCATION)
-                        .getCurrentPageURL();
+                .login(Constants.USERNAME_INVALID, Constants.PASSWORD_INVALID)
+                .getCurrentPageURL();
 
         //assert
         Assert.assertEquals(url, Constants.LOGINPAGE_URL, "Wrong URL Found");
